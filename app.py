@@ -13,7 +13,7 @@ st.write("Cantidad de Transacciones y Máximo de Vehículos en Calle por Línea 
 # =========================
 # 1) LECTURA SIMPLE
 # =========================
-RUTA_CSV = r"C:\Users\eziom\OneDrive\Desktop\DASHBOARD\cantrx_maxvh_2508_3108_25.csv"  # ← ajustá si cambia
+RUTA_CSV = "data/cantrx_maxvh_2508_3108_25.csv"
 
 def _leer_csv(path):
     try:
