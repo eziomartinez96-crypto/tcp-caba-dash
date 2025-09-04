@@ -1,0 +1,16 @@
+# entornos / cache
+.venv/
+venv/
+__pycache__/
+*.pyc
+.streamlit/
+
+# datos locales (no subir productivo)
+data/
+*.csv
+*.parquet
+*.xlsx
+
+# sistema
+.DS_Store
+Thumbs.db
