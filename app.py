@@ -115,16 +115,14 @@ df_fil = df_fil[(df_fil["hora_sola"] >= rango_horas[0]) & (df_fil["hora_sola"] <
 # =========================
 fechas_unicas = pd.to_datetime(pd.Series(sorted(df_fil["FECHA"].dropna().unique())))
 dias_total = int(len(fechas_unicas))
+dias_hab = int((fechas_unicas.dt.weekday < 5).sum())
+dias_nohab = int((fechas_unicas.dt.weekday >= 5).sum())
 
-# 0..4 = L a V ; 5..6 = S y D
-mask_hab   = fechas_unicas.dt.weekday < 5
-mask_nohab = fechas_unicas.dt.weekday >= 5
+fechas_hab = set(fechas_unicas[fechas_unicas.dt.weekday < 5].dt.date)
+fechas_nohab = set(fechas_unicas[fechas_unicas.dt.weekday >= 5].dt.date)
 
-dias_hab   = int(mask_hab.sum())
-dias_nohab = int(mask_nohab.sum())
-
-fechas_hab   = set(fechas_unicas[mask_hab].dt.date)
-fechas_nohab = set(fechas_unicas[mask_nohab].dt.date)
+df_hab = df_fil[df_fil["FECHA"].isin(fechas_hab)].copy()
+df_nohab = df_fil[df_fil["FECHA"].isin(fechas_nohab)].copy()
 
 # =========================
 # 5–7) PIVOT (cálculo + métrica + render) — UNA sola tabla
