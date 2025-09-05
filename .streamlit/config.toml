@@ -1,0 +1,6 @@
+[theme]
+primaryColor = "#0d6efd"          # Azul brillante Bootstrap
+backgroundColor = "#FFFFFF"       # Fondo principal blanco
+secondaryBackgroundColor = "#E9F2FF"  # Sidebar azul muy claro
+textColor = "#000000"             # Texto negro
+font = "sans serif"
